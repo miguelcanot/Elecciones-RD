@@ -1,0 +1,1 @@
+<p class="multiLinea">TERMINOS Y CONDICIONES</p>

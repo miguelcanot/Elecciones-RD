@@ -1,0 +1,95 @@
+body {
+  /*margin-top: 50px; /* 100px is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
+}
+
+html, body {
+  height: 100%;
+}
+
+footer {
+  margin: 50px 0;
+}
+
+.iCentrada {
+  display: inline-block;
+}
+
+/* Home Page Carousel */
+
+header.carousel {
+  height: 20px;
+    /*height: 30%;*/
+    margin-bottom: 50px;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+@media (max-width: 767px) {
+  .page-aside {
+    width: 100%;
+    display: block;
+    height: auto;
+    position: relative;
+  }
+  .page-aside div.fixed {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+   header.carousel .carousel {
+        height: 70%;
+    }
+}
+
+
+/*------------------------------------------*/
+/*   Footer Newsletter Form
+/*------------------------------------------*/
+.bs-callout-danger {
+  border-left: solid 1px #ebccd1 !important;
+}
+
+.bs-callout-successs {
+  border-left: solid 1px #3c763d !important;
+}
+
+.bs-callout-info {
+  border-left: solid 1px #5bc0de !important;
+}
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+
+img.imgMinPost {
+  height: 32px;
+  width: 32px;
+}
+
+.divLogo {
+/* position: static; */
+width: 100%;
+/* background: #383A41; */
+/* margin: 0 auto; */
+margin-bottom: 50px;
+margin-top: 20px;
+}
+
+img#imgLogo {
+height: 150px;
+}
+    
