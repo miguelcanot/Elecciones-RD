@@ -72,6 +72,7 @@ define("IMAGEAPP", $host.'assets/img/app/');
 define("IMGEVENTO", $host.'assets/img/evento/');
 define("IMGSTAFF", $host.'assets/img/staff/');
 define("IMGPROPIEDAD", $host.'assets/img/propiedad/');
+define("IMAGEDENUNCIA", $host.'assets/img/denuncia/');
 
 define("IMAGENSLIDE", $host.'assets/img/slide/');
 define("IMAGENBANNER", $host.'assets/img/banner/');

@@ -112,6 +112,18 @@ class Denuncia extends MY_Controller {
 						}
 					}
 				}
+				
+				if (isset($_FILES["imagen"])) {
+					$this->load->library("Subir");
+					$codigoImg = Encryption::encodeCrc($idDenuncia);
+					$this->load->library("Subir");
+					$resultado = Subir::imagen("imagen", "{$codigoImg}", IMAGE_UPLOAD."denuncia/", "", array("jpeg", "jpg", "png", "gif"), 10000, 70, 100, 100, true);
+					if ($resultado['estado']) {
+						$imagen = $resultado["nombre"].".".$resultado["ext"];
+						$denunciaTemp = array("IDDenuncia"=>$idDenuncia, "Imagen"=>$imagen);
+						$this->ModeloDenuncia->actualizar($denunciaTemp);
+					}
+				}
 				echo json_encode(array("estatus"=>true, "mensaje"=>Texto::idioma("Info-Modificacion")));
 			} else {
 				echo json_encode(array("estatus"=>false, "mensaje"=>Texto::idioma("ERROR-01")));

@@ -6,9 +6,9 @@ function Denuncia() {
     self.paginaActual = ko.observable(0);
     self.paginaFinal = ko.observable(true);
     self.busqueda = "";
+    self.urlImagen = ko.observable();
     self.buscador = ko.observable();
     self.modificando = ko.observable(false);
-
     
     self.obtenerEstadisticaMunicipio = function () {
         var url = pathApi + "denuncia/apiobtenerestadisticamunicipio/";
@@ -115,19 +115,30 @@ function Denuncia() {
       var url = pathApi + "denuncia/apiregistrar";
       if ($("#frmDenuncia").valid()) {
         disableBottonForm("frmDenuncia", "btnGuardar", "lDenuncia");
-        $.post(url, $("#frmDenuncia").serialize(), function (data) {
-          if (data["estatus"]) {
-            self.limpiar();
-            mostrarMensajeS(data["mensaje"]);
-            redirect(pathWeb + "denuncia#");
-          } else {
+        
+        var data = $("#frmDenuncia").serializefiles();//new FormData($("#frmPregunta")[0]);
+        $.ajax({
+          type: "POST",
+          url: url,
+          contentType: false,
+          processData: false,
+          cache: false,
+          data: data, // Adjuntar los campos del formulario enviado.
+          success: function (data) {
+            data = JSON.parse(data);
+            if (data["estatus"]) {
+              mostrarMensajeS(data["mensaje"]);
+              self.limpiar();
+                redirect(pathWeb + "denuncia#");
+            } else {
               mostrarMensajeE(data["mensaje"]);
+            }
+            enableBottonForm("frmDenuncia", "btnGuardar", "lDenuncia");
+          },
+          error: function (data, errorThrown) {
+            enableBottonForm("frmDenuncia", "btnGuardar", "lDenuncia");
+            mostrarMensajeE(data.responseText);
           }
-          enableBottonForm("frmDenuncia", "btnGuardar", "lDenuncia");
-        }, "json")
-        .fail(function (d) {
-          enableBottonForm("frmDenuncia", "btnGuardar", "lDenuncia");
-          mostrarMensajeE(d.responseText);
         });
       }
     }
@@ -296,6 +307,11 @@ function Denuncia() {
         enableBottonForm("", "", "lDenuncia");
         mostrarMensajeE(d.responseText);
       });
+    }
+    
+    self.btnImagen = function(objeto) {
+        self.urlImagen(objeto.Imagen);
+      $("#modalImagen").modal("show");
     }
 
     

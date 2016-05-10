@@ -43,6 +43,14 @@
 				<span class="" data-valmsg-for="Comentario" data-valmsg-replace="true"></span>
 			</div>
 		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="imagen"><?php echo Texto::idioma("Imagen");?></label>
+			<div class="col-sm-6">
+				<input type="file" name='imagen' id='imagen' class="form-control invisible file" />
+				<button type="button" class="btn btn-block btn-info btn-lg" id="btnImagen"><i class='fa fa-picture-o'></i></button>
+				<span id="rutaImagen"></span>
+			</div>
+		</div>
 	</div>
 	<div class="col-xs-12">
 		<div class="form-group">
@@ -68,6 +76,7 @@
 		denuncia.obtenerTipoDenuncia();
 		recinto.obtenerMunicipio();
         app.menuActivo("mDenuncia");   
+		botonImagen("imagen", "btnImagen", "rutaImagen");
 		$(".select2").select2({
           width: '100%'
         });

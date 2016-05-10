@@ -38,6 +38,7 @@
 						<td data-bind="html:Mesa"></td>
 						<td data-bind="html:Estatus.icono"></td>
 						<td>
+							<button type="button" class="btn btn-info btn-xs" data-bind="click:$parent.btnImagen, enable:Imagen != ''" title='<?php echo Texto::idioma("Imagen");?>'><i class="fa fa-picture-o"></i></button> |
 							<button type="button" class="btn btn-info btn-xs" data-bind="click:$parent.detalle" title='<?php echo Texto::idioma("Detalle");?>'><i class="fa fa-list"></i></button> |
 							<button type="button" class="btn btn-success btn-xs" data-bind="click:$parent.aprobar" title='<?php echo Texto::idioma("Aprobar");?>'><i class="fa fa-check"></i></button> |
 	                    	<button type="button" class="btn btn-danger btn-xs" data-bind="click:$parent.eliminar" title='<?php echo Texto::idioma("Eliminar");?>'><i class="fa fa-trash"></i></button>
@@ -78,6 +79,20 @@
 				</div>
 			</div>
         </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modalImagen">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title"><?php echo Texto::idioma("Imagen");?></h3>
+      </div>
+      <div class="modal-body">
+        <img class="img-responsive" src"" data-bind="attr:{src:urlImagen}">
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

@@ -26,6 +26,7 @@ class ModeloDenuncia extends CI_Model {
 		$sql = $this->db->get();
 		foreach ($sql->result_object() as $registro) {
 			$registro->IDDenuncia = ($encode) ? Encryption::encode($registro->IDDenuncia) : $registro->IDDenuncia;
+			$registro->Imagen = (file_exists(IMAGE_UPLOAD."denuncia/"."full-".$registro->Imagen) && $registro->Imagen != "") ? IMAGEDENUNCIA."full-".$registro->Imagen : "";
 		}
 		return $sql->result_object();
 	}
